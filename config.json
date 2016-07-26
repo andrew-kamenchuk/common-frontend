@@ -1,0 +1,24 @@
+{
+    "src": {
+        "node": "./node_modules",
+        "js": "./src/js",
+        "css": "./src/styles",
+        "lib": "./lib",
+        "img": "./img",
+        "fonts": "./fonts"
+    },
+
+    "dest": {
+        "public": "./public",
+        "vendor": "./public/vendor"
+    },
+
+    "app": {
+        "src" : "app.js",
+        "dest": "app.min.js"
+    },
+
+    "default": [
+        "bootstrap", "fontawesome", "main"
+    ]
+}
