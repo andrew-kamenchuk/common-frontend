@@ -3,7 +3,7 @@
 var config = require("../../config");
 var del = require("del");
 
-module.exports = function () {
+module.exports = function() {
     return del([
         config.dest.vendor,
         config.dest.public + "/js",

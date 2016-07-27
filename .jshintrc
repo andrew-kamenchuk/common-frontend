@@ -1,0 +1,22 @@
+// http://jshint.com/docs/options/
+{
+    "passfail"   : true,
+    "browser"    : true,
+    "node"       : true,
+    "jquery"     : true,
+    "browserify" : true,
+    "debug"      : true,
+    "esversion"  : 5,
+    "strict"     : true,
+    "bitwise"    : false,
+    "boss"       : true,
+    "curly"      : true,
+    "latedef"    : true,
+    "noarg"      : true,
+    "shadow"     : false,
+    "plusplus"   : false,
+    "forin"      : true,
+    "funcscope"  : false,
+    "undef"      : false,
+    "unused"     : true
+}

@@ -8,7 +8,7 @@ var uglify = require("gulp-uglify");
 var streamify = require("gulp-streamify");
 var babelify = require("babelify");
 
-module.exports = function () {
+module.exports = function() {
     var bundleStream = browserify(config.src.js + "/" + config.app.src)
         .transform(babelify, { presets: ["es2015"] })
         .bundle();

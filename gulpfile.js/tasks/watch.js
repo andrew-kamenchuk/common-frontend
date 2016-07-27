@@ -3,6 +3,6 @@
 var config = require("../../config");
 var gulp = require("gulp");
 
-module.exports = function () {
+module.exports = function() {
     gulp.watch(config.src.js + "/" + config.app.src, ["main"]);
 };
