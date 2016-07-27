@@ -1,5 +1,8 @@
 # build
 node_modules/
-public/*
+public/assets/*
 
+.__browserify_string_empty.js
+
+# keep
 !.gitkeep

@@ -9,16 +9,11 @@
     },
 
     "dest": {
-        "public": "./public",
-        "vendor": "./public/vendor"
-    },
-
-    "app": {
-        "src" : "app.js",
-        "dest": "app.min.js"
+        "assets": "./public/assets",
+        "vendor": "./public/assets/vendor"
     },
 
     "default": [
-        "bootstrap", "fontawesome", "main"
+        "bootstrap.css", "fontawesome", "jquery-bootstrap", "main"
     ]
 }

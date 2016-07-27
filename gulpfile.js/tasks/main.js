@@ -7,14 +7,24 @@ var source = require("vinyl-source-stream");
 var uglify = require("gulp-uglify");
 var streamify = require("gulp-streamify");
 var babelify = require("babelify");
+var glob = require("glob");
+var path = require("path");
 
-module.exports = function() {
-    var bundleStream = browserify(config.src.js + "/" + config.app.src)
+function publish(file)
+{
+    var bundleStream = browserify(file)
         .transform(babelify, { presets: ["es2015"] })
+        .external("jquery")
         .bundle();
 
     bundleStream
-        .pipe(source(config.app.dest))
+        .pipe(source(path.relative(config.src.js, file)))
         .pipe(streamify(uglify()))
-        .pipe(gulp.dest(config.dest.public + "/js"));
+        .pipe(gulp.dest(config.dest.assets + "/js"));
+}
+
+module.exports = function() {
+    glob(config.src.js + "/**/*-app.js", function(err, files) {
+        files.map(publish);
+    });
 };
