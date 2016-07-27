@@ -1,19 +1,21 @@
 {
-    "src": {
-        "node": "./node_modules",
-        "js": "./src/js",
-        "css": "./src/styles",
-        "lib": "./lib",
-        "img": "./img",
-        "fonts": "./fonts"
+    "src" : {
+        "node"  : "./node_modules",
+        "js"    : "./src/js",
+        "css"   : "./src/styles",
+        "lib"   : "./lib",
+        "img"   : "./img",
+        "fonts" : "./fonts"
     },
 
-    "dest": {
-        "assets": "./public/assets",
-        "vendor": "./public/assets/vendor"
+    "dest" : {
+        "assets" : "./public/assets",
+        "vendor" : "./public/assets/vendor"
     },
 
-    "default": [
-        "bootstrap.css", "fontawesome", "jquery-bootstrap", "main"
-    ]
+    "tasks" : {
+        "default": [
+            "bootstrap.css", "fontawesome", "jquery-bootstrap", "main"
+        ]
+    }
 }

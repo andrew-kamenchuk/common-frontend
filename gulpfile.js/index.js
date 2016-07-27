@@ -11,6 +11,10 @@ for (var name in tasks) {
     gulp.task(name, tasks[name]);
 }
 
-if ("default" in config) {
-    gulp.task("default", config.default);
+for (var name in config.tasks) {
+    if (!config.tasks.hasOwnProperty(name)) {
+        continue;
+    }
+
+    gulp.task(name, config.tasks.name);
 }
