@@ -16,5 +16,5 @@ for (var name in config.tasks) {
         continue;
     }
 
-    gulp.task(name, config.tasks.name);
+    gulp.task(name, config.tasks[name]);
 }
