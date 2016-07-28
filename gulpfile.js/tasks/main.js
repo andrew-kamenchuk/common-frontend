@@ -3,28 +3,28 @@
 var config = require("../../config");
 var gulp = require("gulp");
 var browserify = require("browserify");
-var source = require("vinyl-source-stream");
 var uglify = require("gulp-uglify");
-var streamify = require("gulp-streamify");
 var babelify = require("babelify");
-var glob = require("glob");
-var path = require("path");
-
-function publish(file)
-{
-    var bundleStream = browserify(file)
-        .transform(babelify, { presets: ["es2015"] })
-        .external("jquery")
-        .bundle();
-
-    bundleStream
-        .pipe(source(path.relative(config.src.js, file)))
-        .pipe(streamify(uglify()))
-        .pipe(gulp.dest(config.dest.assets + "/js"));
-}
+var tap = require("gulp-tap");
+var buffer = require("gulp-buffer");
+var rev = require("gulp-rev");
 
 module.exports = function() {
-    glob(config.src.js + "/**/*-app.js", function(err, files) {
-        files.map(publish);
-    });
+    gulp.src(config.src.js + "/**/*-app.js", { read: false })
+
+        // browserify content of each -app.js file separately
+        .pipe(tap(function(file) {
+            file.contents = browserify(file.path)
+                .transform(babelify, { presets: ["es2015"] })
+                .external("jquery")
+                .bundle();
+        }))
+
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(gulp.dest(config.dest.assets + "/js"))
+        .pipe(rev())
+        .pipe(gulp.dest(config.dest.assets + "/js"))
+        .pipe(rev.manifest({ merge: true }))
+        .pipe(gulp.dest(config.dest.assets));
 };
