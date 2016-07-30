@@ -15,7 +15,7 @@
 
     "tasks" : {
         "default": [
-            "bootstrap.css", "fontawesome", "scripts"
+            "styles", "scripts", "html"
         ]
     }
 }
