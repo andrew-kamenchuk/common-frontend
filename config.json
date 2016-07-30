@@ -15,7 +15,7 @@
 
     "tasks" : {
         "default": [
-            "bootstrap.css", "fontawesome", "jquery-bootstrap", "main"
+            "bootstrap.css", "fontawesome", "scripts"
         ]
     }
 }

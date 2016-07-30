@@ -28,3 +28,5 @@ module.exports = function() {
         .pipe(rev.manifest({ merge: true }))
         .pipe(gulp.dest(config.dest.assets));
 };
+
+module.exports.deps = ["jquery-bootstrap"];
