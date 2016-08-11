@@ -9,21 +9,16 @@ var babelify = require("babelify");
 var buffer = require("gulp-buffer");
 
 module.exports = function() {
-    // jshint multistr: true
-    var b = browserifyStr("\
-        var $ = global.$ = global.jQuery = require(\"jquery\");\
-        require(\"bootstrap\");\
-        module.exports = $;\
-    ");
+    var b = browserifyStr("module.exports = global.angular = require(\"angular\");");
 
     var bundleStream = b
         .transform(babelify, { presets: ["es2015"] })
-        .require("jquery")
+        .require("angular")
         .bundle();
 
     bundleStream
-        .pipe(source("bootstrap.min.js"))
+        .pipe(source("angular.min.js"))
         .pipe(buffer())
         .pipe(uglify())
-        .pipe(gulp.dest(config.dest.vendor + "/bootstrap"));
+        .pipe(gulp.dest(config.dest.vendor + "/angular"));
 };

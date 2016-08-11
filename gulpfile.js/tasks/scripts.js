@@ -17,6 +17,7 @@ module.exports = function() {
             file.contents = browserify(file.path)
                 .transform(babelify, { presets: ["es2015"] })
                 .external("jquery")
+                .external("angular")
                 .bundle();
         }))
 
@@ -29,4 +30,4 @@ module.exports = function() {
         .pipe(gulp.dest(config.dest.assets));
 };
 
-module.exports.deps = ["jquery-bootstrap"];
+module.exports.deps = ["jquery-bootstrap", "ng"];
