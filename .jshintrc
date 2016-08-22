@@ -6,7 +6,7 @@
     "jquery"     : true,
     "browserify" : true,
     "debug"      : true,
-    "esversion"  : 5,
+    "esversion"  : 6,
     "strict"     : true,
     "bitwise"    : false,
     "boss"       : true,

@@ -1,23 +1,12 @@
-var config = require("../config");
-var gulp = require("gulp");
+const config = require("../config");
+const gulp = require("gulp");
 
-var tasks = require("require-dir")("./tasks", { recurse: true });
+const tasks = require("require-dir")("./tasks", { recurse: true });
 
-for (var name in tasks) {
-    if (!tasks.hasOwnProperty(name)) {
-        continue;
-    }
+for (const name of Object.keys(tasks)) {
 
-    var task = tasks[name];
-    var deps = task.deps || [];
+    const task = tasks[name](gulp, config);
+    const deps = tasks[name].deps || [];
 
     gulp.task(name, deps, task);
-}
-
-for (var name in config.tasks) {
-    if (!config.tasks.hasOwnProperty(name)) {
-        continue;
-    }
-
-    gulp.task(name, config.tasks[name]);
 }

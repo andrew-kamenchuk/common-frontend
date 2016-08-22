@@ -1,22 +1,21 @@
 "use strict";
 
-var config = require("../../config");
-var gulp = require("gulp");
-var browserifyStr = require("browserify-string");
-var source = require("vinyl-source-stream");
-var uglify = require("gulp-uglify");
-var babelify = require("babelify");
-var buffer = require("gulp-buffer");
+let config = require("../../config");
+let gulp = require("gulp");
+let browserifyStr = require("browserify-string");
+let source = require("vinyl-source-stream");
+let uglify = require("gulp-uglify");
+let babelify = require("babelify");
+let buffer = require("gulp-buffer");
 
-module.exports = function() {
-    // jshint multistr: true
-    var b = browserifyStr("\
-        var $ = global.$ = global.jQuery = require(\"jquery\");\
-        require(\"bootstrap\");\
-        module.exports = $;\
-    ");
+module.exports = () => {
+    let b = browserifyStr(`
+        let $ = global.$ = global.jQuery = require("jquery");
+        require("bootstrap");
+        module.exports = $;
+    `);
 
-    var bundleStream = b
+    let bundleStream = b
         .transform(babelify, { presets: ["es2015"] })
         .require("jquery")
         .bundle();

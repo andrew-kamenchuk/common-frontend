@@ -1,5 +1,5 @@
 "use strict";
 
-module.exports = function() {};
+module.exports = () => () => null;
 
 module.exports.deps = ["styles", "scripts"];

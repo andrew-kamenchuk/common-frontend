@@ -11,11 +11,5 @@
     "dest" : {
         "assets" : "./public/assets",
         "vendor" : "./public/assets/vendor"
-    },
-
-    "tasks" : {
-        "default": [
-            "styles", "scripts", "html"
-        ]
     }
 }
