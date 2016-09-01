@@ -3,7 +3,6 @@
 module.exports = (gulp, config) => {
     const browserifyStr = require("browserify-string");
     const source        = require("vinyl-source-stream");
-    const babelify      = require("babelify");
     const uglify        = require("gulp-uglify");
     const buffer        = require("gulp-buffer");
 
@@ -11,7 +10,6 @@ module.exports = (gulp, config) => {
         const b = browserifyStr("module.exports = global.angular = require(\"angular\");");
 
         const bundleStream = b
-            .transform(babelify, { presets: ["es2015"] })
             .require("angular")
             .bundle();
 
