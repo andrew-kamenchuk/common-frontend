@@ -2,10 +2,10 @@
 
 module.exports = (gulp, config) => {
     const browserifyStr = require("browserify-string");
-    const source = require("vinyl-source-stream");
-    const uglify = require("gulp-uglify");
-    const babelify = require("babelify");
-    const buffer = require("gulp-buffer");
+    const source        = require("vinyl-source-stream");
+    const babelify      = require("babelify");
+    const uglify        = require("gulp-uglify");
+    const buffer        = require("gulp-buffer");
 
     return () => {
         const b = browserifyStr("module.exports = global.angular = require(\"angular\");");

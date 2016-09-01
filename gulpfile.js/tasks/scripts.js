@@ -2,17 +2,17 @@
 
 module.exports = (gulp, config) => {
     const browserify = require("browserify");
-    const uglify = require("gulp-uglify");
-    const babelify = require("babelify");
-    const tap = require("gulp-tap");
-    const buffer = require("gulp-buffer");
-    const rev = require("gulp-rev");
+    const uglify     = require("gulp-uglify");
+    const babelify   = require("babelify");
+    const tap        = require("gulp-tap");
+    const buffer     = require("gulp-buffer");
+    const rev        = require("gulp-rev");
 
     return () => gulp
         .src(config.src.js + "/**/*-app.js", { read: false })
         // browserify content of each -app.js file separately
         .pipe(tap((file) => {
-            file.contents = browserify(file.path)
+            file.contents = browserify([require.resolve("babel-polyfill"), file.path])
                 .transform(babelify, { presets: ["es2015"] })
                 .external("jquery")
                 .external("angular")
