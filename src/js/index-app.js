@@ -1,5 +1,6 @@
 (function() {
     "use strict";
-    // let $ = require("jquery");
-    // let ng = require("angular");
+
+    // const $ = require("jquery");
+    // const ng = require("angular");
 })();

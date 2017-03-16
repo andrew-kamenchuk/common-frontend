@@ -1,7 +1,7 @@
 "use strict";
 
 const config = require("../config");
-const gulp   = require("gulp");
+const gulp = require("gulp");
 
 const tasks = require("require-dir")("./tasks", { recurse: true });
 

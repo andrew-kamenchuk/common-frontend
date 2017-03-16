@@ -2,4 +2,4 @@
 
 module.exports = () => () => null;
 
-module.exports.deps = ["styles", "scripts"];
+module.exports.deps = [];
